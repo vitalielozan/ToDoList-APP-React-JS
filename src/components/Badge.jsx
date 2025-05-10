@@ -10,10 +10,8 @@ function StatusBadge(props) {
     switch (status) {
       case 'completed':
         return 'success';
-      case 'in-progress':
-        return 'warning';
       case 'pending':
-        return 'secondary';
+        return 'warning';
       case 'to-do':
         return 'danger';
       default:
@@ -46,7 +44,6 @@ function StatusBadge(props) {
         <Modal.Body>
           <Form.Select value={currentStatus} onChange={handleStatusChange}>
             <option value="to-do">To Do</option>
-            <option value="in-progress">In Progress</option>
             <option value="completed">Completed</option>
             <option value="pending">Pending</option>
           </Form.Select>

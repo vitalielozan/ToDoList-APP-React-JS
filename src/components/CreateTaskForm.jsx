@@ -129,7 +129,6 @@ function CreateTaskForm(props) {
         >
           <option value="to-do">ToDo</option>
           <option value="pending">Pending</option>
-          <option value="in-progress">In-Progress</option>
           <option value="completed">Completed</option>
         </Form.Select>
         <p className="text-danger"></p>

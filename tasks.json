@@ -1,3 +1,11 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "taskName": "Termin ABC",
+      "dueDate": "2025-07-07T00:00:00.000Z",
+      "status": "to-do",
+      "taskDetails": "Ceva detalii despre acest task....",
+      "id": 1
+    }
+  ]
 }

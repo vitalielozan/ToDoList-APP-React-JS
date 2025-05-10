@@ -10,7 +10,7 @@ A simple To-Do List application built with ReactJS. It allows users to add, comp
 
 ## 🔧 Technologies Used
 
-- ReactJS (created with `create-react-app`)
+- ReactJS (created with `vite-react`)
 - HTML5 & CSS3
 - JavaScript (ES6+)
 - React JS
