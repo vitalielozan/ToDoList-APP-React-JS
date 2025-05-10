@@ -1,0 +1,79 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+export function useTasks() {
+  const [taskList, setTaskList] = useState([]);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/tasks');
+        setTaskList(response.data);
+      } catch (error) {
+        console.log('Error fetching tasks', error.message);
+      }
+    };
+    fetchTasks();
+  }, []);
+
+  const onNewTaskAdd = async (formData) => {
+    try {
+      const response = await axios.post('http://localhost:3001/tasks', {
+        ...formData,
+        dueDate: formData.dueDate
+          ? new Date(formData.dueDate).toISOString()
+          : null,
+      });
+      setTaskList((prev) => [...prev, response.data]);
+    } catch (error) {
+      console.log('Error adding new task:', error.message);
+    }
+  };
+
+  const onStatusChange = async (taskId, newStatus) => {
+    try {
+      await axios.patch(`http://localhost:3001/tasks/${taskId}`, {
+        status: newStatus,
+      });
+      setTaskList((prev) =>
+        prev.map((task) =>
+          task.id === taskId ? { ...task, status: newStatus } : task
+        )
+      );
+    } catch (error) {
+      console.log('Error updating task status:', error.message);
+    }
+  };
+
+  const deleteTaskById = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/tasks/${id}`);
+      setTaskList((prev) => prev.filter((task) => task.id !== id));
+    } catch (error) {
+      console.log('Error on deleting task:', error.message);
+    }
+  };
+
+  const editTaskById = async (id, updatedList) => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:3001/tasks/${id}`,
+        updatedList
+      );
+      const updatedTask = response.data;
+      setTaskList((prevTasks) =>
+        prevTasks.map((task) => (task.id === id ? updatedTask : task))
+      );
+    } catch (error) {
+      console.log('Error on editing task:', error.message);
+    }
+  };
+
+  return {
+    taskList,
+    onNewTaskAdd,
+    onStatusChange,
+    deleteTaskById,
+    editTaskById,
+  };
+}
