@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Form, Button } from 'react-bootstrap';
+import { validateForm } from '../utils/functions.js';
 
 function CreateTaskForm(props) {
   const { addNewTask } = props;
@@ -19,32 +20,8 @@ function CreateTaskForm(props) {
   });
 
   useEffect(() => {
-    const errors = {
-      taskNameError: '',
-      dueDateError: '',
-      taskDetailsError: '',
-    };
-
-    if (!formData.taskName.trim()) {
-      errors.taskNameError = 'This field is Required';
-    }
-
-    if (!formData.dueDate.trim()) {
-      errors.dueDateError = 'This field is Required';
-    }
-
-    if (!formData.taskDetails.trim()) {
-      errors.taskDetailsError = 'This field is Required';
-    }
-
-    const isValid =
-      !errors.taskNameError && !errors.dueDateError && !errors.taskDetailsError;
-
-    setFormValidation({
-      ...errors,
-      isValid,
-    });
-  }, [formData.taskName, formData.dueDate, formData.taskDetails]);
+    setFormValidation(validateForm(formData));
+  }, [formData]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
