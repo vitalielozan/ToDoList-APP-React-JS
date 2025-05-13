@@ -1,10 +1,10 @@
 {
   "tasks": [
     {
-      "taskName": "Programare ABC",
-      "dueDate": "2025-07-07T00:00:00.000Z",
-      "status": "to-do",
-      "taskDetails": "Careva detalii despre acest task....",
+      "taskName": "Programare medic",
+      "taskDetails": "Ceva detalii despre acest task...",
+      "dueDate": "2025-05-15T00:00:00.000Z",
+      "status": "todo",
       "id": 1
     }
   ]

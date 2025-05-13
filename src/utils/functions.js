@@ -1,3 +1,5 @@
+import { status } from '../constants/index.js';
+
 export const validateForm = (formData) => {
   const errors = {
     taskNameError: '',
@@ -32,3 +34,31 @@ export const validateForm = (formData) => {
     isValid,
   };
 };
+
+export const getTaskFilterItem = (taskData) => [
+  { name: 'All', count: taskData.length },
+  {
+    name: 'To Do',
+    count: taskData.filter(
+      (t) => (t.status || '').toLowerCase() === status.case1
+    ).length,
+  },
+  {
+    name: 'In Progress',
+    count: taskData.filter(
+      (t) => (t.status || '').toLowerCase() === status.case2
+    ).length,
+  },
+  {
+    name: 'Completed',
+    count: taskData.filter(
+      (t) => (t.status || '').toLowerCase() === status.case4
+    ).length,
+  },
+  {
+    name: 'Pending',
+    count: taskData.filter(
+      (t) => (t.status || '').toLowerCase() === status.case3
+    ).length,
+  },
+];

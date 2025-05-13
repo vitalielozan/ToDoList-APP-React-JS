@@ -4,26 +4,30 @@ import TaskCard from './TaskCard';
 import ControlPanel from './ControlPanel';
 import EmptyMessage from './EmptyMessage';
 
-function TaskContainer(props) {
-  const {
-    taskData = [],
-    onNewTaskAdd,
-    onStatusChange,
-    onTaskDeleted,
-    onTaskEdited,
-  } = props;
-
+function TaskContainer({
+  taskData = [],
+  allTasks = [],
+  onFilterChange,
+  activeFilter,
+  onNewTaskAdd,
+  onStatusChange,
+  onTaskDeleted,
+  onTaskEdited,
+}) {
   const [show, setShow] = useState(false);
 
   return (
-    <Container fluid className="p-3 bg-light bg-gradient min-vh-100 ">
+    <Container fluid className="mx-2 p-3 bg-light bg-gradient min-vh-100 ">
       <Row className="mb-4">
         <Col xs={12} lg={12} className="mx-auto">
           <ControlPanel
-            taskData={taskData}
+            taskData={allTasks}
+            hasTasks={taskData.length > 0}
             show={show}
             setShow={setShow}
             onNewTaskAdd={onNewTaskAdd}
+            onFilterChange={onFilterChange}
+            activeFilter={activeFilter}
           />
         </Col>
       </Row>

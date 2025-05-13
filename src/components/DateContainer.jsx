@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
-import {
-  Stack,
-  Button,
-  Modal,
-  Form,
-  FormControl,
-  FormLabel,
-} from 'react-bootstrap';
+import { Stack, Button, Modal, Form, FormControl } from 'react-bootstrap';
 
-function DateContainer(props) {
-  const {
-    id,
-    taskName,
-    dueDate,
-    status,
-    taskDetails,
-    onTaskDeleted,
-    onTaskEdited,
-  } = props;
+function DateContainer({
+  id,
+  taskName,
+  dueDate,
+  status,
+  taskDetails,
+  onTaskDeleted,
+  onTaskEdited,
+}) {
   const parsedDate =
     dueDate instanceof Date
       ? dueDate.toLocaleDateString()
@@ -39,9 +31,13 @@ function DateContainer(props) {
     setShowModal(true);
   };
 
-  const handleSave = () => {
-    onTaskEdited(id, { taskName: editedName });
-    onTaskEdited(id, { taskDetails: editedDetails });
+  const handleSave = async () => {
+    await onTaskEdited(id, {
+      taskName: editedName,
+      taskDetails: editedDetails,
+      dueDate,
+      status,
+    });
     setShowModal(false);
   };
 

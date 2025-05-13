@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Badge, Form, Modal, Button } from 'react-bootstrap';
 
-function StatusBadge(props) {
-  const { status, onStatusChange } = props;
+function StatusBadge({ status, onStatusChange }) {
   const [show, setShow] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
 
@@ -12,8 +11,9 @@ function StatusBadge(props) {
         return 'success';
       case 'pending':
         return 'warning';
-      case 'to-do':
-        return 'danger';
+      case 'inprogress':
+        return 'info';
+      case 'todo':
       default:
         return 'danger';
     }
@@ -43,8 +43,9 @@ function StatusBadge(props) {
         </Modal.Header>
         <Modal.Body>
           <Form.Select value={currentStatus} onChange={handleStatusChange}>
-            <option value="to-do">To Do</option>
+            <option value="todo">To Do</option>
             <option value="completed">Completed</option>
+            <option value="inprogress">In Progress</option>
             <option value="pending">Pending</option>
           </Form.Select>
         </Modal.Body>

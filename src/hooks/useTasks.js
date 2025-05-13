@@ -56,7 +56,7 @@ export function useTasks() {
 
   const editTaskById = async (id, updatedList) => {
     try {
-      const response = await axios.patch(
+      const response = await axios.put(
         `http://localhost:3001/tasks/${id}`,
         updatedList
       );

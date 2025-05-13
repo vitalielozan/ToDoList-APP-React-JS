@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Form, Button } from 'react-bootstrap';
 import { validateForm } from '../utils/functions.js';
+import { status } from '../constants/index.js';
 
-function CreateTaskForm(props) {
-  const { addNewTask } = props;
+function CreateTaskForm({ addNewTask }) {
   const [formData, setFormData] = useState({
     taskName: '',
     dueDate: '',
-    status: 'to-do',
+    status: status.case1,
     taskDetails: '',
   });
 
@@ -35,7 +35,7 @@ function CreateTaskForm(props) {
     setFormData({
       taskName: '',
       dueDate: '',
-      status: 'to-do',
+      status: status.case1,
       taskDetails: '',
     });
   };
@@ -104,9 +104,10 @@ function CreateTaskForm(props) {
           value={formData.status}
           onChange={handleInputChange}
         >
-          <option value="to-do">ToDo</option>
-          <option value="pending">Pending</option>
-          <option value="completed">Completed</option>
+          <option value={status.case1}>To Do</option>
+          <option value={status.case2}>In Progress</option>
+          <option value={status.case3}>Pending</option>
+          <option value={status.case4}>Completed</option>
         </Form.Select>
         <p className="text-danger"></p>
       </Form.Group>
