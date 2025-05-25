@@ -7,7 +7,7 @@ export function useTasks() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/tasks');
+        const response = await axios.get('http://localhost:10000/tasks');
         setTaskList(response.data);
       } catch (error) {
         console.log('Error fetching tasks', error.message);
@@ -18,7 +18,7 @@ export function useTasks() {
 
   const onNewTaskAdd = async (formData) => {
     try {
-      const response = await axios.post('http://localhost:3001/tasks', {
+      const response = await axios.post('http://localhost:10000/tasks', {
         ...formData,
         dueDate: formData.dueDate
           ? new Date(formData.dueDate).toISOString()
@@ -32,7 +32,7 @@ export function useTasks() {
 
   const onStatusChange = async (taskId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:3001/tasks/${taskId}`, {
+      await axios.patch(`http://localhost:10000/tasks/${taskId}`, {
         status: newStatus,
       });
       setTaskList((prev) =>
@@ -47,7 +47,7 @@ export function useTasks() {
 
   const deleteTaskById = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/tasks/${id}`);
+      await axios.delete(`http://localhost:10000/tasks/${id}`);
       setTaskList((prev) => prev.filter((task) => task.id !== id));
     } catch (error) {
       console.log('Error on deleting task:', error.message);
@@ -57,7 +57,7 @@ export function useTasks() {
   const editTaskById = async (id, updatedList) => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/tasks/${id}`,
+        `http://localhost:10000/tasks/${id}`,
         updatedList
       );
       const updatedTask = response.data;
