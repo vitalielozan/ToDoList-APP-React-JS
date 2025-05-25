@@ -5,6 +5,7 @@ export function useTasks() {
   const [taskList, setTaskList] = useState([]);
 
   const API_URL = 'http://localhost:10000/tasks';
+
   useEffect(() => {
     const fetchTasks = async () => {
       try {
