@@ -29,7 +29,6 @@ A simple To-Do List application built with ReactJS. It allows users to add, comp
 ```bash
 npm install
 npm run dev
-npx json-server --watch tasks.json --port 3001
 ```
 
 ## Expanding the ESLint configuration
