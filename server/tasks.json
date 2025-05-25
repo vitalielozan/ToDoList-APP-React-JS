@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "taskName": "Programare medic",
+      "taskDetails": "Ceva detalii despre acest task...",
+      "dueDate": "2025-05-15T00:00:00.000Z",
+      "status": "inprogress",
+      "id": 1
+    },
+    {
+      "taskName": "Vizitare PalmBeach",
+      "dueDate": "2025-05-23T00:00:00.000Z",
+      "status": "pending",
+      "taskDetails": "Va fi o yi foarte minunata ",
+      "id": 2
+    },
+    {
+      "taskName": "Mergem in vacanta",
+      "dueDate": "2025-08-21T00:00:00.000Z",
+      "status": "todo",
+      "taskDetails": "Am planuit o vacanta la munte...",
+      "id": 3
+    }
+  ]
+}
