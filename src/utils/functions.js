@@ -22,7 +22,7 @@ export const validateForm = (formData) => {
 
   if (!formData.taskDetails.trim() || formData.taskDetails === '') {
     errors.taskDetailsError = 'This field is Required';
-  } else if (formData.taskDetails.length < 20) {
+  } else if (formData.taskDetails.length < 15) {
     errors.taskDetailsError = 'Task details must be at least 20 characters';
   }
 
