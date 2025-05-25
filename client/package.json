@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start-server": "json-server --watch ./server/tasks.json --port 10000",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -16,7 +15,6 @@
     "clsx": "^2.1.1",
     "font-awesome": "^4.7.0",
     "google-fonts": "^1.0.0",
-    "json-server": "^0.17.4",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
