@@ -35,29 +35,29 @@ export const validateForm = (formData) => {
   };
 };
 
-export const getTaskFilterItem = (taskData) => [
-  { name: 'All', count: taskData.length },
+export const getTaskFilterItem = (taskList) => [
+  { name: 'All', count: taskList.length },
   {
     name: 'To Do',
-    count: taskData.filter(
+    count: taskList.filter(
       (t) => (t.status || '').toLowerCase() === status.case1
     ).length,
   },
   {
     name: 'In Progress',
-    count: taskData.filter(
+    count: taskList.filter(
       (t) => (t.status || '').toLowerCase() === status.case2
     ).length,
   },
   {
     name: 'Completed',
-    count: taskData.filter(
+    count: taskList.filter(
       (t) => (t.status || '').toLowerCase() === status.case4
     ).length,
   },
   {
     name: 'Pending',
-    count: taskData.filter(
+    count: taskList.filter(
       (t) => (t.status || '').toLowerCase() === status.case3
     ).length,
   },

@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, Badge } from 'react-bootstrap';
 import { getTaskFilterItem } from '../utils/functions.js';
 
-function TaskFilter({ taskList, onFilterSelect, activeFilter }) {
+function TaskFilter({ taskList = [], onFilterSelect, activeFilter }) {
   const taskFilterItem = getTaskFilterItem(taskList);
   return (
     <Nav

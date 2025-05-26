@@ -1,11 +1,18 @@
 {
   "tasks": [
     {
-      "taskName": "Termin Arzt.",
-      "taskDetails": "Sehr wichtiges Termin. Important!!!!!",
+      "taskName": "Termin medic",
       "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "pending",
+      "status": "todo",
+      "taskDetails": "Ceva detalii despre task....",
       "id": 1
+    },
+    {
+      "taskName": "Dk;bjvkhjhgf.",
+      "dueDate": "2025-05-29T00:00:00.000Z",
+      "status": "inprogress",
+      "taskDetails": "Adcvjlkj nbvhgjhytgrf tfdsdfghjk....",
+      "id": 2
     }
   ]
 }

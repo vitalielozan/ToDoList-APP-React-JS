@@ -2,19 +2,18 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import CreateTaskForm from './CreateTaskForm';
 import TaskFilter from './TaskFilter';
-import { useTasksContext } from '../hooks/useTasksContext';
+import { useTasksContext } from '../hooks/useTasksContext.js';
+import { useFilterTasks } from '../hooks/useFilterTasks.js';
 
-function ControlPanel({
-  show,
-  setShow,
-  hasTasks,
-  taskList,
-  onFilterChange,
-  activeFilter,
-}) {
-  const { onNewTaskAdd } = useTasksContext();
+function ControlPanel() {
+  const { show, setShow, filteredTasks, activeFilter, setActiveFilter } =
+    useFilterTasks();
+
   const handleClose = () => setShow(false);
+
   const handleShow = () => setShow(true);
+
+  const { taskList = [], onNewTaskAdd } = useTasksContext();
 
   const handleNewTask = (newTask) => {
     onNewTaskAdd(newTask);
@@ -29,11 +28,11 @@ function ControlPanel({
 
         <TaskFilter
           taskList={taskList}
-          onFilterSelect={onFilterChange}
+          onFilterSelect={setActiveFilter}
           activeFilter={activeFilter}
         />
       </div>
-      {hasTasks ? (
+      {filteredTasks.length > 0 ? (
         <div className='d-flex justify-content-end mt-3'>
           <Button variant='primary' onClick={handleShow}>
             Create Task
