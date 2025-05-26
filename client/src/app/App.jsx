@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TaskContainer from '../components/TaskContainer';
-import { useTasks } from '../hooks/useTasks';
+import { useTasksContext } from '../hooks/useTasksContext';
 
 function App() {
   const {
@@ -9,7 +9,7 @@ function App() {
     onStatusChange,
     deleteTaskById,
     editTaskById,
-  } = useTasks();
+  } = useTasksContext();
 
   const [activeFilter, setActiveFilter] = useState('All');
 

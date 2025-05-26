@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { TasksContext } from './context';
 import axios from 'axios';
 
-export function useTasks() {
+function TasksProvider({ children }) {
   const [taskList, setTaskList] = useState([]);
 
   const API_URL = 'http://localhost:3001/tasks';
@@ -68,11 +69,27 @@ export function useTasks() {
     }
   };
 
-  return {
-    taskList,
+  return (
+    <TasksContext.Provider
+      value={{
+        taskList,
+        onNewTaskAdd,
+        onStatusChange,
+        deleteTaskById,
+        editTaskById,
+      }}
+    >
+      {children}
+    </TasksContext.Provider>
+  );
+}
+
+export default TasksProvider;
+
+/* 
+   taskList,
     onNewTaskAdd,
     onStatusChange,
     deleteTaskById,
     editTaskById,
-  };
-}
+*/
