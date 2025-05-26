@@ -8,7 +8,7 @@ const middlewares = jsonServer.defaults();
 const allowedOrigin = 'https://todolist-app-react-js.onrender.com';
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', allowedOrigin);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
