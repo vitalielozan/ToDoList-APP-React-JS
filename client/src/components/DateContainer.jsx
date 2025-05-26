@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { Stack, Button, Modal, Form, FormControl } from 'react-bootstrap';
+import { useTasksContext } from '../hooks/useTasksContext';
 
-function DateContainer({
-  id,
-  taskName,
-  dueDate,
-  status,
-  taskDetails,
-  onTaskDeleted,
-  onTaskEdited,
-}) {
+function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
+  const { deleteTaskById, editTaskById } = useTasksContext();
   const parsedDate =
     dueDate instanceof Date
       ? dueDate.toLocaleDateString()
@@ -21,7 +15,7 @@ function DateContainer({
 
   const handleDelete = () => {
     if (window.confirm('Are you sure to delete this task?')) {
-      onTaskDeleted(id);
+      deleteTaskById(id);
     }
   };
 
@@ -32,7 +26,7 @@ function DateContainer({
   };
 
   const handleSave = async () => {
-    await onTaskEdited(id, {
+    await editTaskById(id, {
       taskName: editedName,
       taskDetails: editedDetails,
       dueDate,
@@ -43,18 +37,18 @@ function DateContainer({
 
   return (
     <>
-      <Stack gap={3} direction="horizontal" className="justify-content-between">
+      <Stack gap={3} direction='horizontal' className='justify-content-between'>
         {status === 'completed' ? (
-          <Button onClick={handleDelete} variant="danger" size="sm">
+          <Button onClick={handleDelete} variant='danger' size='sm'>
             Delete Task
           </Button>
         ) : (
-          <Button onClick={handleEditTask} variant="warning" size="sm">
+          <Button onClick={handleEditTask} variant='warning' size='sm'>
             Edit Task
           </Button>
         )}
-        <Stack gap={0} className="text-end">
-          <small className="text-muted">Due Date</small>
+        <Stack gap={0} className='text-end'>
+          <small className='text-muted'>Due Date</small>
           <strong>{parsedDate}</strong>
         </Stack>
       </Stack>
@@ -65,18 +59,18 @@ function DateContainer({
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formTaskName">
+            <Form.Group controlId='formTaskName'>
               <Form.Label>Task Name</Form.Label>
               <FormControl
-                type="text"
+                type='text'
                 value={editedName}
                 onChange={(e) => setEditedName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId="formTaskDetails">
+            <Form.Group controlId='formTaskDetails'>
               <Form.Label>Task Details</Form.Label>
               <Form.Control
-                as="textarea"
+                as='textarea'
                 rows={4}
                 value={editedDetails}
                 onChange={(e) => setEditedDetails(e.target.value)}
@@ -85,10 +79,10 @@ function DateContainer({
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button variant='secondary' onClick={() => setShowModal(false)}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSave}>
+          <Button variant='primary' onClick={handleSave}>
             Save Changes
           </Button>
         </Modal.Footer>

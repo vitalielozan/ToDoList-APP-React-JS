@@ -2,10 +2,8 @@ import React from 'react';
 import { Card, Stack } from 'react-bootstrap';
 import StatusBadge from './Badge';
 import DateContainer from './DateContainer';
-import { useTasksContext } from '../hooks/useTasksContext';
 
 function TaskCard({ task }) {
-  const { onStatusChange, deleteTaskById, editTaskById } = useTasksContext();
   const { id, status, taskName, taskDetails, dueDate } = task;
 
   return (
@@ -21,10 +19,7 @@ function TaskCard({ task }) {
           className='justify-content-between'
         >
           <div>T-{id}</div>
-          <StatusBadge
-            status={status}
-            onStatusChange={(newStatus) => onStatusChange(id, newStatus)}
-          />
+          <StatusBadge status={status} id={id} />
         </Stack>
       </Card.Header>
 
@@ -40,8 +35,6 @@ function TaskCard({ task }) {
           status={status}
           taskName={taskName}
           taskDetails={taskDetails}
-          onTaskDeleted={deleteTaskById}
-          onTaskEdited={editTaskById}
         />
       </Card.Footer>
     </Card>

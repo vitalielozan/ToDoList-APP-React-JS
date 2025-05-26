@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Badge, Form, Modal, Button } from 'react-bootstrap';
+import { useTasksContext } from '../hooks/useTasksContext';
 
-function StatusBadge({ status, onStatusChange }) {
+function StatusBadge({ id, status }) {
   const [show, setShow] = useState(false);
+  const { onStatusChange } = useTasksContext();
+
   const [currentStatus, setCurrentStatus] = useState(status);
 
   const getVariant = (status) => {
@@ -22,7 +25,7 @@ function StatusBadge({ status, onStatusChange }) {
   const handleStatusChange = (event) => {
     const newStatus = event.target.value;
     setCurrentStatus(newStatus);
-    onStatusChange?.(newStatus);
+    onStatusChange?.(id, newStatus);
     setShow(false);
   };
 
@@ -31,7 +34,7 @@ function StatusBadge({ status, onStatusChange }) {
       <Badge
         bg={getVariant(currentStatus)}
         onClick={() => setShow(true)}
-        className="text-capitalize"
+        className='text-capitalize'
         style={{ cursor: 'pointer' }}
       >
         {currentStatus}
@@ -43,14 +46,14 @@ function StatusBadge({ status, onStatusChange }) {
         </Modal.Header>
         <Modal.Body>
           <Form.Select value={currentStatus} onChange={handleStatusChange}>
-            <option value="todo">To Do</option>
-            <option value="completed">Completed</option>
-            <option value="inprogress">In Progress</option>
-            <option value="pending">Pending</option>
+            <option value='todo'>To Do</option>
+            <option value='completed'>Completed</option>
+            <option value='inprogress'>In Progress</option>
+            <option value='pending'>Pending</option>
           </Form.Select>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
+          <Button variant='secondary' onClick={() => setShow(false)}>
             Close
           </Button>
         </Modal.Footer>
