@@ -25,11 +25,11 @@ function App() {
   return (
     <>
       <TaskContainer
-        onNewTaskAdd={onNewTaskAdd}
         taskData={filteredTasks}
         allTasks={taskList}
         onFilterChange={setActiveFilter}
         activeFilter={activeFilter}
+        onNewTaskAdd={onNewTaskAdd}
         onStatusChange={onStatusChange}
         onTaskDeleted={deleteTaskById}
         onTaskEdited={editTaskById}
