@@ -6,14 +6,13 @@ import { useTasksContext } from '../hooks/useTasksContext.js';
 import { useFilterTasks } from '../hooks/useFilterTasks.js';
 
 function ControlPanel() {
-  const { show, setShow, filteredTasks, activeFilter, setActiveFilter } =
-    useFilterTasks();
+  const { show, setShow, filteredTasks } = useFilterTasks();
 
   const handleClose = () => setShow(false);
 
   const handleShow = () => setShow(true);
 
-  const { taskList = [], onNewTaskAdd } = useTasksContext();
+  const { onNewTaskAdd } = useTasksContext();
 
   const handleNewTask = (newTask) => {
     onNewTaskAdd(newTask);
@@ -26,11 +25,7 @@ function ControlPanel() {
         <h2 className='mb-1'>Tasks List</h2>
         <p className='text-muted'>Manage your tasks efficiently</p>
 
-        <TaskFilter
-          taskList={taskList}
-          onFilterSelect={setActiveFilter}
-          activeFilter={activeFilter}
-        />
+        <TaskFilter />
       </div>
       {filteredTasks.length > 0 ? (
         <div className='d-flex justify-content-end mt-3'>

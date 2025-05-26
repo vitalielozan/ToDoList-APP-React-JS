@@ -1,14 +1,18 @@
 import React from 'react';
 import { Nav, Badge } from 'react-bootstrap';
 import { getTaskFilterItem } from '../utils/functions.js';
+import { useTasksContext } from '../hooks/useTasksContext.js';
+import { useFilterTasks } from '../hooks/useFilterTasks.js';
 
-function TaskFilter({ taskList = [], onFilterSelect, activeFilter }) {
+function TaskFilter() {
+  const { activeFilter, setActiveFilter } = useFilterTasks();
+  const { taskList = [] } = useTasksContext();
   const taskFilterItem = getTaskFilterItem(taskList);
   return (
     <Nav
       variant='tabs'
       activeKey={activeFilter}
-      onSelect={(selectedKey) => onFilterSelect(selectedKey)}
+      onSelect={(selectedKey) => setActiveFilter(selectedKey)}
     >
       {taskFilterItem.map((item) => (
         <Nav.Item key={item.name}>
