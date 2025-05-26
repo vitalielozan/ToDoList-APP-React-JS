@@ -4,7 +4,7 @@ import axios from 'axios';
 export function useTasks() {
   const [taskList, setTaskList] = useState([]);
 
-  const API_URL = 'http://localhost:3001/tasks';
+  const API_URL = 'https://todolist-app-backend-bio0.onrender.com/tasks';
 
   useEffect(() => {
     const fetchTasks = async () => {

@@ -5,7 +5,7 @@ const server = jsonServer.create();
 const router = jsonServer.router('tasks.json');
 const middlewares = jsonServer.defaults();
 
-const allowedOrigin = 'http://localhost:3001';
+const allowedOrigin = 'https://todolist-app-hw2m.onrender.com';
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', allowedOrigin);
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
