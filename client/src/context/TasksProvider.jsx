@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { TasksContext } from './context';
+import React, { useState, useEffect } from 'react';
+import { TasksContext } from './context.js';
 import axios from 'axios';
 
 function TasksProvider({ children }) {
@@ -85,11 +85,3 @@ function TasksProvider({ children }) {
 }
 
 export default TasksProvider;
-
-/* 
-   taskList,
-    onNewTaskAdd,
-    onStatusChange,
-    deleteTaskById,
-    editTaskById,
-*/
