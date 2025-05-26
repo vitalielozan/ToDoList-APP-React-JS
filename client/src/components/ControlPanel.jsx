@@ -2,16 +2,17 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import CreateTaskForm from './CreateTaskForm';
 import TaskFilter from './TaskFilter';
+import { useTasksContext } from '../hooks/useTasksContext';
 
 function ControlPanel({
   show,
   setShow,
   hasTasks,
-  onNewTaskAdd,
-  taskData,
+  taskList,
   onFilterChange,
   activeFilter,
 }) {
+  const { onNewTaskAdd } = useTasksContext();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -21,20 +22,20 @@ function ControlPanel({
   };
 
   return (
-    <div className="mx-2 p-3 bg-transparent rounded shadow border-0 d-flex justify-content-between align-items-center">
-      <div className="d-flex flex-column">
-        <h2 className="mb-1">Tasks List</h2>
-        <p className="text-muted">Manage your tasks efficiently</p>
+    <div className='mx-2 p-3 bg-transparent rounded shadow border-0 d-flex justify-content-between align-items-center'>
+      <div className='d-flex flex-column'>
+        <h2 className='mb-1'>Tasks List</h2>
+        <p className='text-muted'>Manage your tasks efficiently</p>
 
         <TaskFilter
-          taskData={taskData}
+          taskList={taskList}
           onFilterSelect={onFilterChange}
           activeFilter={activeFilter}
         />
       </div>
       {hasTasks ? (
-        <div className="d-flex justify-content-end mt-3">
-          <Button variant="primary" onClick={handleShow}>
+        <div className='d-flex justify-content-end mt-3'>
+          <Button variant='primary' onClick={handleShow}>
             Create Task
           </Button>
         </div>

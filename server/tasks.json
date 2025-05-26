@@ -1,3 +1,11 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "taskName": "Termin Arzt.",
+      "taskDetails": "Sehr wichtiges Termin. Important!!!!!",
+      "dueDate": "2025-06-06T00:00:00.000Z",
+      "status": "pending",
+      "id": 1
+    }
+  ]
 }

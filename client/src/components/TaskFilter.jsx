@@ -2,18 +2,18 @@ import React from 'react';
 import { Nav, Badge } from 'react-bootstrap';
 import { getTaskFilterItem } from '../utils/functions.js';
 
-function TaskFilter({ taskData, onFilterSelect, activeFilter }) {
-  const taskFilterItem = getTaskFilterItem(taskData);
+function TaskFilter({ taskList, onFilterSelect, activeFilter }) {
+  const taskFilterItem = getTaskFilterItem(taskList);
   return (
     <Nav
-      variant="tabs"
+      variant='tabs'
       activeKey={activeFilter}
       onSelect={(selectedKey) => onFilterSelect(selectedKey)}
     >
       {taskFilterItem.map((item) => (
         <Nav.Item key={item.name}>
           <Nav.Link eventKey={item.name}>
-            {item.name} <Badge bg="secondary">{item.count}</Badge>
+            {item.name} <Badge bg='secondary'>{item.count}</Badge>
           </Nav.Link>
         </Nav.Item>
       ))}
