@@ -24,13 +24,6 @@ A simple To-Do List application built with ReactJS. It allows users to add, comp
 - 💾 Store tasks using an external server
 - 🎨 Responsive interface
 
-🔧 How to Run
-
-```bash
-npm install
-npm run dev
-```
-
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the TS template for information on how to integrate TypeScript and typescript-eslint in your project.

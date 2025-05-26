@@ -5,7 +5,7 @@ const server = jsonServer.create();
 const router = jsonServer.router('tasks.json');
 const middlewares = jsonServer.defaults();
 
-const allowedOrigin = 'https://todolist-app-react-js.onrender.com';
+const allowedOrigin = 'http://localhost:3001';
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', allowedOrigin);
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
@@ -24,16 +24,16 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.post('/tasks', (req, res, next) => {
-  const { title } = req.body;
-  if (!title || typeof title !== 'string' || title.length > 100) {
-    return res.status(400).json({ error: 'Title is not valid.' });
+  const { taskName } = req.body;
+  if (!taskName || typeof taskName !== 'string' || taskName.length > 100) {
+    return res.status(400).json({ error: 'Task name is not valid.' });
   }
   next();
 });
 
 server.use(router);
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Json Server is running on port ${PORT}`);
 });

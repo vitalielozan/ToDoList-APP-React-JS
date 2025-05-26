@@ -4,7 +4,7 @@ import axios from 'axios';
 export function useTasks() {
   const [taskList, setTaskList] = useState([]);
 
-  const API_URL = 'https://todolist-app-react-js-backend.onrender.com/tasks';
+  const API_URL = 'http://localhost:3001/tasks';
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -20,7 +20,7 @@ export function useTasks() {
 
   const onNewTaskAdd = async (formData) => {
     try {
-      const response = await axios.post(API_URL, {
+      const response = await axios.post(`${API_URL}`, {
         ...formData,
         dueDate: formData.dueDate
           ? new Date(formData.dueDate).toISOString()
