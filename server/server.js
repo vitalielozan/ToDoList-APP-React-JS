@@ -16,7 +16,7 @@ server.use((req, res, next) => {
 const limiter = rateLimit({
   windowMs: 60 * 1000,
   max: 30,
-  message: 'To many time, try again i 1 minute.',
+  message: 'To many time, try again in one minute.',
 });
 server.use(limiter);
 
