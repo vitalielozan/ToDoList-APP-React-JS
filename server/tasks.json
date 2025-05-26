@@ -6,13 +6,6 @@
       "status": "todo",
       "taskDetails": "Einkaufen Obst und Gemuse....",
       "id": 1
-    },
-    {
-      "taskName": "Termin Artzt.",
-      "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "inprogress",
-      "taskDetails": "Sehr wiechtiges Termin!",
-      "id": 2
     }
   ]
 }
