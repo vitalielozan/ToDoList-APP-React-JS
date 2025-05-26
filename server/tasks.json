@@ -1,18 +1,11 @@
 {
   "tasks": [
     {
-      "taskName": "Termin medic",
-      "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "completed",
-      "taskDetails": "Ceva detalii despre task....",
-      "id": 1
-    },
-    {
-      "taskName": "Einkaufen gehen.",
-      "taskDetails": "Obst und Gemuse kaufen.",
-      "dueDate": "2025-05-29T00:00:00.000Z",
+      "taskName": "Einkaufen fahren.",
+      "dueDate": "2025-05-30T00:00:00.000Z",
       "status": "todo",
-      "id": 2
+      "taskDetails": "Obst und Gemuse kaufen.....",
+      "id": 1
     }
   ]
 }

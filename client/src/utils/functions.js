@@ -1,4 +1,4 @@
-import { status } from '../constants/index.js';
+import { status } from '../constants/constants.js';
 
 export const validateForm = (formData) => {
   const errors = {
@@ -40,25 +40,25 @@ export const getTaskFilterItem = (taskList) => [
   {
     name: 'To Do',
     count: taskList.filter(
-      (t) => (t.status || '').toLowerCase() === status.case1
+      (task) => (task.status || '').toLowerCase() === status.case1
     ).length,
   },
   {
     name: 'In Progress',
     count: taskList.filter(
-      (t) => (t.status || '').toLowerCase() === status.case2
+      (task) => (task.status || '').toLowerCase() === status.case2
     ).length,
   },
   {
     name: 'Completed',
     count: taskList.filter(
-      (t) => (t.status || '').toLowerCase() === status.case4
+      (task) => (task.status || '').toLowerCase() === status.case4
     ).length,
   },
   {
     name: 'Pending',
     count: taskList.filter(
-      (t) => (t.status || '').toLowerCase() === status.case3
+      (task) => (task.status || '').toLowerCase() === status.case3
     ).length,
   },
 ];
