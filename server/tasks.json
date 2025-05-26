@@ -1,11 +1,3 @@
 {
-  "tasks": [
-    {
-      "taskName": "Einkaufen gehen.",
-      "dueDate": "2025-05-26T00:00:00.000Z",
-      "status": "todo",
-      "taskDetails": "Lebensmittel muss kaufen.",
-      "id": 1
-    }
-  ]
+  "tasks": []
 }
