@@ -26,13 +26,7 @@ function TaskContainer() {
               lg={3}
               className='mb-4 d-flex'
             >
-              <TaskCard
-                id={item.id}
-                status={item.status}
-                taskDetails={item.taskDetails}
-                taskName={item.taskName}
-                dueDate={item.dueDate}
-              />
+              <TaskCard task={item} />
             </Col>
           ))
         ) : (

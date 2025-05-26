@@ -4,11 +4,13 @@ import StatusBadge from './Badge';
 import DateContainer from './DateContainer';
 import { useTasksContext } from '../hooks/useTasksContext';
 
-function TaskCard({ id, status, taskName, taskDetails, dueDate }) {
+function TaskCard({ task }) {
   const { onStatusChange, deleteTaskById, editTaskById } = useTasksContext();
+  const { id, status, taskName, taskDetails, dueDate } = task;
 
   return (
     <Card
+      key={id}
       className='h-100 bg-transparent shadow-lg'
       style={{ width: '16rem', height: '24rem' }}
     >

@@ -3,15 +3,15 @@
     {
       "taskName": "Termin medic",
       "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "todo",
+      "status": "pending",
       "taskDetails": "Ceva detalii despre task....",
       "id": 1
     },
     {
-      "taskName": "Dk;bjvkhjhgf.",
+      "taskName": "Einkaufen gehen.",
+      "taskDetails": "Obst und Gemuse kaufen.",
       "dueDate": "2025-05-29T00:00:00.000Z",
       "status": "inprogress",
-      "taskDetails": "Adcvjlkj nbvhgjhytgrf tfdsdfghjk....",
       "id": 2
     }
   ]
