@@ -1,4 +1,4 @@
-import { status } from '../constants/index.js';
+import { status } from '../constants/constants.js';
 
 export const validateForm = (formData) => {
   const errors = {
@@ -50,15 +50,15 @@ export const getTaskFilterItem = (taskData) => [
     ).length,
   },
   {
-    name: 'Completed',
-    count: taskData.filter(
-      (t) => (t.status || '').toLowerCase() === status.case4
-    ).length,
-  },
-  {
     name: 'Pending',
     count: taskData.filter(
       (t) => (t.status || '').toLowerCase() === status.case3
+    ).length,
+  },
+  {
+    name: 'Completed',
+    count: taskData.filter(
+      (t) => (t.status || '').toLowerCase() === status.case4
     ).length,
   },
 ];

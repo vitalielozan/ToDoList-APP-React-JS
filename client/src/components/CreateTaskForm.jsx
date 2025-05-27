@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Form, Button } from 'react-bootstrap';
 import { validateForm } from '../utils/functions.js';
-import { status } from '../constants/index.js';
+import { status } from '../constants/constants.js';
 
 function CreateTaskForm({ addNewTask }) {
   const [formData, setFormData] = useState({
@@ -49,27 +49,27 @@ function CreateTaskForm({ addNewTask }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="taskName">
+      <Form.Group className='mb-3' controlId='taskName'>
         <Form.Label>Task Name</Form.Label>
         <Form.Control
-          type="text"
-          name="taskName"
+          type='text'
+          name='taskName'
           value={formData.taskName}
           onChange={handleInputChange}
-          placeholder="Enter task name"
+          placeholder='Enter task name'
           className={clsx(
             'form-control',
             formValidation.taskNameError && 'border border-danger'
           )}
         />
-        <p className="ps-1 text-danger">{formValidation.taskNameError}</p>
+        <p className='ps-1 text-danger'>{formValidation.taskNameError}</p>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="dueDate">
+      <Form.Group className='mb-3' controlId='dueDate'>
         <Form.Label>Due Date</Form.Label>
         <Form.Control
-          type="date"
-          name="dueDate"
+          type='date'
+          name='dueDate'
           value={formData.dueDate}
           onChange={handleInputChange}
           className={clsx(
@@ -77,30 +77,30 @@ function CreateTaskForm({ addNewTask }) {
             formValidation.dueDateError && 'border border-danger'
           )}
         />
-        <p className="ps-1 text-danger">{formValidation.dueDateError}</p>
+        <p className='ps-1 text-danger'>{formValidation.dueDateError}</p>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="taskDetails">
+      <Form.Group className='mb-3' controlId='taskDetails'>
         <Form.Label>Task Details</Form.Label>
         <Form.Control
-          as="textarea"
+          as='textarea'
           rows={4}
           className={clsx(
             'form-control',
             formValidation.taskDetailsError && 'border border-danger'
           )}
-          name="taskDetails"
+          name='taskDetails'
           value={formData.taskDetails}
           onChange={handleInputChange}
-          placeholder="Enter details"
+          placeholder='Enter details'
         />
-        <p className="ps-1 text-danger">{formValidation.taskDetailsError}</p>
+        <p className='ps-1 text-danger'>{formValidation.taskDetailsError}</p>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="status">
+      <Form.Group className='mb-3' controlId='status'>
         <Form.Label>Status</Form.Label>
         <Form.Select
-          name="status"
+          name='status'
           value={formData.status}
           onChange={handleInputChange}
         >
@@ -109,13 +109,13 @@ function CreateTaskForm({ addNewTask }) {
           <option value={status.case3}>Pending</option>
           <option value={status.case4}>Completed</option>
         </Form.Select>
-        <p className="text-danger"></p>
+        <p className='text-danger'></p>
       </Form.Group>
 
       <Button
         disabled={!formValidation.isValid}
-        variant="primary"
-        type="submit"
+        variant='primary'
+        type='submit'
       >
         Add Task
       </Button>
