@@ -6,6 +6,13 @@
       "status": "todo",
       "taskDetails": "Obst und Gemuse kaufen.....",
       "id": 1
+    },
+    {
+      "taskName": "Termin Artz.",
+      "dueDate": "2025-06-06T00:00:00.000Z",
+      "status": "pending",
+      "taskDetails": "Some details for this task...",
+      "id": 2
     }
   ]
 }

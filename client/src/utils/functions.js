@@ -50,15 +50,15 @@ export const getTaskFilterItem = (taskList) => [
     ).length,
   },
   {
-    name: 'Completed',
-    count: taskList.filter(
-      (task) => (task.status || '').toLowerCase() === status.case4
-    ).length,
-  },
-  {
     name: 'Pending',
     count: taskList.filter(
       (task) => (task.status || '').toLowerCase() === status.case3
+    ).length,
+  },
+  {
+    name: 'Completed',
+    count: taskList.filter(
+      (task) => (task.status || '').toLowerCase() === status.case4
     ).length,
   },
 ];
