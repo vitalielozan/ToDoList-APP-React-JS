@@ -26,8 +26,8 @@ function App() {
     <>
       <TaskContainer
         onNewTaskAdd={onNewTaskAdd}
-        taskData={filteredTasks}
-        allTasks={taskList}
+        filteredTasks={filteredTasks}
+        taskList={taskList}
         onFilterChange={setActiveFilter}
         activeFilter={activeFilter}
         onStatusChange={onStatusChange}

@@ -4,3 +4,5 @@ export const status = {
   case3: 'pending',
   case4: 'completed',
 };
+
+export const API_URL = 'http://localhost:3001/tasks';

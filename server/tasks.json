@@ -1,17 +1,10 @@
 {
   "tasks": [
     {
-      "taskName": "Einkaufen gehen.",
-      "dueDate": "2025-05-27T00:00:00.000Z",
-      "status": "todo",
-      "taskDetails": "Einkaufen Obst und Gemuse....",
-      "id": 1
-    },
-    {
-      "taskName": "Termin Artz.",
-      "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "pending",
+      "taskName": "Termin Artz. 04.07",
       "taskDetails": "Etwas details uber die task.",
+      "dueDate": "2025-06-06T00:00:00.000Z",
+      "status": "inprogress",
       "id": 2
     }
   ]

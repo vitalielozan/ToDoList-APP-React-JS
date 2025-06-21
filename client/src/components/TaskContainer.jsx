@@ -5,8 +5,8 @@ import ControlPanel from './ControlPanel';
 import EmptyMessage from './EmptyMessage';
 
 function TaskContainer({
-  taskData = [],
-  allTasks = [],
+  filteredTasks = [],
+  taskList = [],
   onFilterChange,
   activeFilter,
   onNewTaskAdd,
@@ -17,12 +17,12 @@ function TaskContainer({
   const [show, setShow] = useState(false);
 
   return (
-    <Container fluid className="mx-2 p-3 bg-light bg-gradient min-vh-100 ">
-      <Row className="mb-4">
-        <Col xs={12} lg={12} className="mx-auto">
+    <Container fluid className='mx-2 p-3 bg-light bg-gradient min-vh-100 '>
+      <Row className='mb-4'>
+        <Col xs={12} lg={12} className='mx-auto'>
           <ControlPanel
-            taskData={allTasks}
-            hasTasks={taskData.length > 0}
+            taskList={taskList}
+            hasTasks={filteredTasks.length > 0}
             show={show}
             setShow={setShow}
             onNewTaskAdd={onNewTaskAdd}
@@ -32,15 +32,15 @@ function TaskContainer({
         </Col>
       </Row>
       <Row>
-        {taskData.length > 0 ? (
-          taskData.map((item) => (
+        {filteredTasks.length > 0 ? (
+          filteredTasks.map((item) => (
             <Col
               key={item.id}
               xs={12}
               sm={6}
               md={4}
               lg={3}
-              className="mb-4 d-flex"
+              className='mb-4 d-flex'
             >
               <TaskCard
                 id={item.id}
