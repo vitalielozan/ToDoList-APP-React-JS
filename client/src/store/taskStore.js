@@ -4,7 +4,8 @@ import axios from 'axios';
 
 const useTaskStore = create((set) => ({
   taskList: [],
-
+  activeFilter: 'All',
+  setActiveFilter: (filter) => set({ activeFilter: filter }),
   fetchTasks: async () => {
     try {
       const response = await axios.get(API_URL);

@@ -62,3 +62,10 @@ export const getTaskFilterItem = (taskData) => [
     ).length,
   },
 ];
+
+const normalize = (text) => (text || '').toLowerCase().replace(/\s+/g, '');
+
+export const filterTasks = (tasks, filter) => {
+  if (filter === 'All') return tasks;
+  return tasks.filter((task) => normalize(task.status) === normalize(filter));
+};

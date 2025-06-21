@@ -1,17 +1,16 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import CreateTaskForm from './CreateTaskForm';
-import TaskFilter from './TaskFilter';
+import CreateTaskForm from './CreateTaskForm.jsx';
+import TaskFilter from './TaskFilter.jsx';
+import useTaskStore from '../store/taskStore.js';
+import { filterTasks } from '../utils/functions.js';
 
-function ControlPanel({
-  show,
-  setShow,
-  hasTasks,
-  onNewTaskAdd,
-  taskList,
-  onFilterChange,
-  activeFilter,
-}) {
+function ControlPanel({ show, setShow }) {
+  const taskList = useTaskStore((state) => state.taskList);
+  const activeFilter = useTaskStore((state) => state.activeFilter);
+  const filteredTasks = filterTasks(taskList, activeFilter);
+  const onNewTaskAdd = useTaskStore((state) => state.onNewTaskAdd);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -26,13 +25,9 @@ function ControlPanel({
         <h2 className='mb-1'>Tasks List</h2>
         <p className='text-muted'>Manage your tasks efficiently</p>
 
-        <TaskFilter
-          taskList={taskList}
-          onFilterSelect={onFilterChange}
-          activeFilter={activeFilter}
-        />
+        <TaskFilter />
       </div>
-      {hasTasks ? (
+      {filteredTasks.length > 0 ? (
         <div className='d-flex justify-content-end mt-3'>
           <Button variant='primary' onClick={handleShow}>
             Create Task

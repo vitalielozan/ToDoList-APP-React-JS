@@ -1,39 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import TaskContainer from '../components/TaskContainer';
-import { useTasks } from '../hooks/useTasks';
+import useTaskStore from '../store/taskStore';
 
 function App() {
-  const {
-    taskList,
-    onNewTaskAdd,
-    onStatusChange,
-    deleteTaskById,
-    editTaskById,
-  } = useTasks();
+  // const fetchTasks = useTaskStore((state) => state.fetchTasks);
 
-  const [activeFilter, setActiveFilter] = useState('All');
-
-  const normalize = (text) => (text || '').toLowerCase().replace(/\s+/g, '');
-
-  const filteredTasks =
-    activeFilter === 'All'
-      ? taskList
-      : taskList.filter(
-          (task) => normalize(task.status) === normalize(activeFilter)
-        );
+  useEffect(() => {
+    useTaskStore.getState().fetchTasks();
+  }, []);
 
   return (
     <>
-      <TaskContainer
-        onNewTaskAdd={onNewTaskAdd}
-        filteredTasks={filteredTasks}
-        taskList={taskList}
-        onFilterChange={setActiveFilter}
-        activeFilter={activeFilter}
-        onStatusChange={onStatusChange}
-        onTaskDeleted={deleteTaskById}
-        onTaskEdited={editTaskById}
-      />
+      <TaskContainer />
     </>
   );
 }

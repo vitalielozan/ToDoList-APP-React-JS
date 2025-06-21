@@ -6,6 +6,13 @@
       "dueDate": "2025-06-06T00:00:00.000Z",
       "status": "inprogress",
       "id": 2
+    },
+    {
+      "taskName": "Termin Medic",
+      "dueDate": "2025-07-04T00:00:00.000Z",
+      "status": "todo",
+      "taskDetails": "Gesprechstunde beim Hausartzt",
+      "id": 3
     }
   ]
 }
