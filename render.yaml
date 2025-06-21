@@ -15,6 +15,6 @@ services:
     name: frontend
     env: node
     buildCommand: cd client && npm install && npm run build
-    startCommand: cd client && npm run preview -- --port 3001
+    startCommand: cd client && npm run preview
     staticPublishPath: client/dist
     plan: free
