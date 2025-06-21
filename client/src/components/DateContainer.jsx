@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stack, Button, Modal, Form, FormControl } from 'react-bootstrap';
-import useTaskStore from '../store/taskStore';
+import useTaskStore from '../store/taskStore.js';
 
 function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
   const onTaskEdited = useTaskStore((state) => state.editTaskById);

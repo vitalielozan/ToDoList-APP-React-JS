@@ -41,7 +41,7 @@ function TaskContainer() {
             </Col>
           ))
         ) : (
-          <EmptyMessage onCreateTaskClick={setShow} />
+          <EmptyMessage setShow={setShow} />
         )}
       </Row>
     </Container>
