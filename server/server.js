@@ -5,7 +5,7 @@ const server = jsonServer.create();
 const router = jsonServer.router('tasks.json');
 const middlewares = jsonServer.defaults();
 
-const allowedOrigin = 'http://localhost:3001';
+const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:10000';
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', allowedOrigin);
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
@@ -16,10 +16,10 @@ server.use((req, res, next) => {
 const limiter = rateLimit({
   windowMs: 60 * 1000,
   max: 30,
-  message: 'To many time, try again in one minute.',
+  message: 'Too many requests, try again in one minute.',
 });
-server.use(limiter);
 
+server.use(limiter);
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 

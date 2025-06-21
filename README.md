@@ -4,11 +4,11 @@
 
 🌱 I’m currently learning HTML&CSS, JavaScript, React
 
-# 📝 ToDoList-App
+# ToDoList-App
 
 A simple To-Do List application built with ReactJS. It allows users to add, complete, and delete tasks.
 
-## 🔧 Technologies Used
+## Technologies Used
 
 - ReactJS (created with `vite-react`)
 - HTML5 & CSS3
@@ -16,25 +16,13 @@ A simple To-Do List application built with ReactJS. It allows users to add, comp
 - React JS
 - Json-Server
 
-## 🚀 Features
+## Features
 
-- ✅ Add tasks
-- ❌ Delete tasks
-- ✔️ Mark tasks as completed
-- 💾 Store tasks using an external server
-- 🎨 Responsive interface
-
-## How to run
-
-- bash
-
-```
-npm install
-
-cd client/npm run dev
-
-cd server/node server.js - to starting json-server
-```
+- Add tasks
+- Delete tasks
+- Mark tasks as completed
+- Store tasks using an external server
+- Responsive interface
 
 ## Expanding the ESLint configuration
 
