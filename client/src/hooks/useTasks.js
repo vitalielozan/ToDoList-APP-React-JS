@@ -4,7 +4,7 @@ import axios from 'axios';
 export function useTasks() {
   const [taskList, setTaskList] = useState([]);
 
-  const API_URL = 'http://localhost:3001/tasks';
+  const API_URL = 'https://backend-fgg5.onrender.com';
 
   useEffect(() => {
     const fetchTasks = async () => {
