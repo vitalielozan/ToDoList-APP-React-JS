@@ -9,9 +9,9 @@
     },
     {
       "taskName": "Termin Artz.",
-      "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "pending",
       "taskDetails": "Etwas details uber die task.",
+      "dueDate": "2025-07-07",
+      "status": "pending",
       "id": 2
     }
   ]
