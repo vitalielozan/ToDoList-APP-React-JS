@@ -36,6 +36,7 @@ function DateContainer({
   const handleEditTask = () => {
     setEditedDetails(taskDetails);
     setEditedName(taskName);
+    setEditedDate(dueDate);
     setShowModal(true);
   };
 
