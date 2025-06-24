@@ -1,18 +1,32 @@
 {
   "tasks": [
     {
-      "taskName": "Termin Artz. 04.07",
-      "taskDetails": "Etwas details uber die task.",
-      "dueDate": "2025-06-06T00:00:00.000Z",
-      "status": "inprogress",
-      "id": 2
-    },
-    {
       "taskName": "Termin Medic",
       "dueDate": "2025-07-04T00:00:00.000Z",
-      "status": "todo",
+      "status": "inprogress",
       "taskDetails": "Gesprechstunde beim Hausartzt",
       "id": 3
+    },
+    {
+      "taskName": "Mergem la cirese",
+      "dueDate": "2025-06-29T00:00:00.000Z",
+      "status": "completed",
+      "taskDetails": "Ciresele sunt foarte gustoase!",
+      "id": 4
+    },
+    {
+      "taskName": "Mergem la Afine",
+      "dueDate": "2025-07-11T00:00:00.000Z",
+      "status": "todo",
+      "taskDetails": "Afinele sunt foarte gustoase si folositoare!!!",
+      "id": 5
+    },
+    {
+      "taskName": "Mergem la cumparaturi",
+      "taskDetails": "Trebuie de cumparat neaparat legume!",
+      "dueDate": "2025-06-26",
+      "status": "pending",
+      "id": 6
     }
   ]
 }
