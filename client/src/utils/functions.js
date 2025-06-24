@@ -40,32 +40,35 @@ export const getTaskFilterItem = (taskData) => [
   {
     name: 'To Do',
     count: taskData.filter(
-      (t) => (t.status || '').toLowerCase() === status.case1
+      (t) => (t.status || '').toLowerCase() === status.TODO
     ).length,
   },
   {
     name: 'In Progress',
     count: taskData.filter(
-      (t) => (t.status || '').toLowerCase() === status.case2
+      (t) => (t.status || '').toLowerCase() === status.INPROGRESS
     ).length,
   },
   {
     name: 'Pending',
     count: taskData.filter(
-      (t) => (t.status || '').toLowerCase() === status.case3
+      (t) => (t.status || '').toLowerCase() === status.PENDING
     ).length,
   },
   {
     name: 'Completed',
     count: taskData.filter(
-      (t) => (t.status || '').toLowerCase() === status.case4
+      (t) => (t.status || '').toLowerCase() === status.COMPLETED
     ).length,
   },
 ];
 
-const normalize = (text) => (text || '').toLowerCase().replace(/\s+/g, '');
-
 export const filterTasks = (tasks, filter) => {
   if (filter === 'All') return tasks;
-  return tasks.filter((task) => normalize(task.status) === normalize(filter));
+
+  return tasks.filter(
+    (task) =>
+      (task.status || '').toLowerCase().replace(/\s+/g, '') ===
+      (filter || '').toLowerCase().replace(/\s+/g, '')
+  );
 };

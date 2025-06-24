@@ -14,16 +14,18 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
   const [showModal, setShowModal] = useState(false);
   const [editedDetails, setEditedDetails] = useState(taskDetails);
   const [editedName, setEditedName] = useState(taskName);
+  const [editedDate, setEditedDate] = useState(dueDate);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (window.confirm('Are you sure to delete this task?')) {
-      onTaskDeleted(id);
+      await onTaskDeleted(id);
     }
   };
 
   const handleEditTask = () => {
     setEditedDetails(taskDetails);
     setEditedName(taskName);
+    setEditedDate(dueDate);
     setShowModal(true);
   };
 
@@ -31,7 +33,7 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
     await onTaskEdited(id, {
       taskName: editedName,
       taskDetails: editedDetails,
-      dueDate,
+      dueDate: editedDate,
       status,
     });
     setShowModal(false);
@@ -67,6 +69,14 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
                 type='text'
                 value={editedName}
                 onChange={(e) => setEditedName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId='formDueDate'>
+              <Form.Label>Due Date</Form.Label>
+              <Form.Control
+                type='date'
+                value={editedDate}
+                onChange={(e) => setEditedDate(e.target.value)}
               />
             </Form.Group>
             <Form.Group controlId='formTaskDetails'>
