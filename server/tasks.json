@@ -13,6 +13,13 @@
       "status": "pending",
       "taskDetails": "Some details for this task...",
       "id": 2
+    },
+    {
+      "taskName": "Holiday",
+      "dueDate": "2025-08-18T00:00:00.000Z",
+      "status": "inprogress",
+      "taskDetails": "Finally , vacantion!!!",
+      "id": 3
     }
   ]
 }
