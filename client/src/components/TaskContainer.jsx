@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import TaskCard from './TaskCard';
-import ControlPanel from './ControlPanel';
-import EmptyMessage from './EmptyMessage';
+import TaskCard from './TaskCard.jsx';
+import ControlPanel from './ControlPanel.jsx';
+import EmptyMessage from './EmptyMessagejsx';
 import { useFilterTasks } from '../hooks/useFilterTasks.js';
 
 function TaskContainer() {

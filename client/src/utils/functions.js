@@ -40,25 +40,25 @@ export const getTaskFilterItem = (taskList) => [
   {
     name: 'To Do',
     count: taskList.filter(
-      (task) => (task.status || '').toLowerCase() === status.case1
+      (task) => (task.status || '').toLowerCase() === status.TODO
     ).length,
   },
   {
     name: 'In Progress',
     count: taskList.filter(
-      (task) => (task.status || '').toLowerCase() === status.case2
+      (task) => (task.status || '').toLowerCase() === status.INPROGRESS
     ).length,
   },
   {
     name: 'Pending',
     count: taskList.filter(
-      (task) => (task.status || '').toLowerCase() === status.case3
+      (task) => (task.status || '').toLowerCase() === status.PENDING
     ).length,
   },
   {
     name: 'Completed',
     count: taskList.filter(
-      (task) => (task.status || '').toLowerCase() === status.case4
+      (task) => (task.status || '').toLowerCase() === status.COMPLETED
     ).length,
   },
 ];

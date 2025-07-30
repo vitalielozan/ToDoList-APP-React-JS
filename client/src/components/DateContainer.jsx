@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Stack, Button, Modal, Form, FormControl } from 'react-bootstrap';
-import { useTasksContext } from '../hooks/useTasksContext';
+import { useTasksContext } from '../hooks/useTasksContext.js';
 
 function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
   const { deleteTaskById, editTaskById } = useTasksContext();

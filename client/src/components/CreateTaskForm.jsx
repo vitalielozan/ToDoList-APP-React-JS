@@ -8,7 +8,7 @@ function CreateTaskForm({ addNewTask }) {
   const [formData, setFormData] = useState({
     taskName: '',
     dueDate: '',
-    status: status.case1,
+    status: status.TODO,
     taskDetails: '',
   });
 
@@ -35,7 +35,7 @@ function CreateTaskForm({ addNewTask }) {
     setFormData({
       taskName: '',
       dueDate: '',
-      status: status.case1,
+      status: status.TODO,
       taskDetails: '',
     });
   };
@@ -104,10 +104,10 @@ function CreateTaskForm({ addNewTask }) {
           value={formData.status}
           onChange={handleInputChange}
         >
-          <option value={status.case1}>To Do</option>
-          <option value={status.case2}>In Progress</option>
-          <option value={status.case3}>Pending</option>
-          <option value={status.case4}>Completed</option>
+          <option value={status.TODO}>To Do</option>
+          <option value={status.INPROGRESS}>In Progress</option>
+          <option value={status.PENDING}>Pending</option>
+          <option value={status.COMPLETED}>Completed</option>
         </Form.Select>
         <p className='text-danger'></p>
       </Form.Group>

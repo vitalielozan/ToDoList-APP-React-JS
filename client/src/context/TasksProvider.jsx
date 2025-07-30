@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { TasksContext } from './context.js';
-import axios from 'axios';
+import api from '../lib/axios.js';
 
 function TasksProvider({ children }) {
   const [taskList, setTaskList] = useState([]);
 
-  const API_URL = 'http://localhost:3001/tasks';
-
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(API_URL);
+        const response = await api.get('/get');
         setTaskList(response.data);
       } catch (error) {
         console.log('Error fetching tasks', error.message);
@@ -21,7 +19,7 @@ function TasksProvider({ children }) {
 
   const onNewTaskAdd = async (formData) => {
     try {
-      const response = await axios.post(`${API_URL}`, {
+      const response = await api.post('/add', {
         ...formData,
         dueDate: formData.dueDate
           ? new Date(formData.dueDate).toISOString()
@@ -35,7 +33,7 @@ function TasksProvider({ children }) {
 
   const onStatusChange = async (taskId, newStatus) => {
     try {
-      await axios.patch(`${API_URL}/${taskId}`, {
+      await api.patch(`/${taskId}`, {
         status: newStatus,
       });
       setTaskList((prev) =>
@@ -50,7 +48,7 @@ function TasksProvider({ children }) {
 
   const deleteTaskById = async (id) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await api.delete(`/delete/${id}`);
       setTaskList((prev) => prev.filter((task) => task.id !== id));
     } catch (error) {
       console.log('Error on deleting task:', error.message);
@@ -59,7 +57,7 @@ function TasksProvider({ children }) {
 
   const editTaskById = async (id, updatedList) => {
     try {
-      const response = await axios.put(`${API_URL}/${id}`, updatedList);
+      const response = await api.put(`/edit/${id}`, updatedList);
       const updatedTask = response.data;
       setTaskList((prevTasks) =>
         prevTasks.map((task) => (task.id === id ? updatedTask : task))

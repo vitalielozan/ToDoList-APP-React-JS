@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Stack } from 'react-bootstrap';
 import StatusBadge from './Badge';
-import DateContainer from './DateContainer';
+import DateContainer from './DateContainer.jsx';
 
 function TaskCard({ task }) {
   const { id, status, taskName, taskDetails, dueDate } = task;
