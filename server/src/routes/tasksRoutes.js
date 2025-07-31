@@ -10,6 +10,6 @@ router.get('/get', getAllTasks);
 router.patch('/status/:id', updateStatus);
 router.post('/add', createTask);
 router.put('/edit/:id', updateTask);
-router.delete('delete/:id', deleteTask);
+router.delete('/delete/:id', deleteTask);
 
 export default router;

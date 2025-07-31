@@ -25,7 +25,7 @@ function TasksProvider({ children }) {
           ? new Date(formData.dueDate).toISOString()
           : null,
       });
-      setTaskList((prev) => [...prev, response.data]);
+      setTaskList((prev) => [...prev, response.data.task]);
     } catch (error) {
       console.log('Error adding new task:', error.message);
     }
@@ -49,7 +49,7 @@ function TasksProvider({ children }) {
   const deleteTaskById = async (id) => {
     try {
       await api.delete(`/delete/${id}`);
-      setTaskList((prev) => prev.filter((task) => task.id !== id));
+      setTaskList((prev) => prev.filter((task) => task._id !== id));
     } catch (error) {
       console.log('Error on deleting task:', error.message);
     }
@@ -58,7 +58,7 @@ function TasksProvider({ children }) {
   const editTaskById = async (id, updatedList) => {
     try {
       const response = await api.put(`/edit/${id}`, updatedList);
-      const updatedTask = response.data;
+      const updatedTask = response.data.task;
       setTaskList((prevTasks) =>
         prevTasks.map((task) => (task._id === id ? updatedTask : task))
       );
