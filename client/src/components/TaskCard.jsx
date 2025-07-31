@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, Stack } from 'react-bootstrap';
-import StatusBadge from './Badge';
+import StatusBadge from './Badge.jsx';
 import DateContainer from './DateContainer.jsx';
 
-function TaskCard({ task }) {
-  const { id, status, taskName, taskDetails, dueDate } = task;
+function TaskCard({ task, index }) {
+  const { status, taskName, taskDetails, dueDate } = task;
 
   return (
     <Card
-      key={id}
+      key={task._id || index}
       className='h-100 bg-transparent shadow-lg'
       style={{ width: '16rem', height: '24rem' }}
     >
@@ -18,8 +18,8 @@ function TaskCard({ task }) {
           gap={3}
           className='justify-content-between'
         >
-          <div>T-{id}</div>
-          <StatusBadge status={status} id={id} />
+          <div>T-{index}</div>
+          <StatusBadge status={status} id={task._id} />
         </Stack>
       </Card.Header>
 
@@ -30,7 +30,7 @@ function TaskCard({ task }) {
 
       <Card.Footer className='text-end'>
         <DateContainer
-          id={id}
+          id={task._id}
           dueDate={dueDate}
           status={status}
           taskName={taskName}

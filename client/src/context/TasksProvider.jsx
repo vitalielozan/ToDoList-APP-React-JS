@@ -33,12 +33,12 @@ function TasksProvider({ children }) {
 
   const onStatusChange = async (taskId, newStatus) => {
     try {
-      await api.patch(`/${taskId}`, {
+      await api.patch(`/status/${taskId}`, {
         status: newStatus,
       });
       setTaskList((prev) =>
         prev.map((task) =>
-          task.id === taskId ? { ...task, status: newStatus } : task
+          task._id === taskId ? { ...task, status: newStatus } : task
         )
       );
     } catch (error) {
@@ -60,7 +60,7 @@ function TasksProvider({ children }) {
       const response = await api.put(`/edit/${id}`, updatedList);
       const updatedTask = response.data;
       setTaskList((prevTasks) =>
-        prevTasks.map((task) => (task.id === id ? updatedTask : task))
+        prevTasks.map((task) => (task._id === id ? updatedTask : task))
       );
     } catch (error) {
       console.log('Error on editing task:', error.message);

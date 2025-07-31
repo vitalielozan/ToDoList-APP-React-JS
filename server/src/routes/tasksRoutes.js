@@ -7,7 +7,7 @@ const { createTask, deleteTask, getAllTasks, updateStatus, updateTask } =
 const router = express.Router();
 
 router.get('/get', getAllTasks);
-router.patch('/:id', updateStatus);
+router.patch('/status/:id', updateStatus);
 router.post('/add', createTask);
 router.put('/edit/:id', updateTask);
 router.delete('delete/:id', deleteTask);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Badge, Form, Modal, Button } from 'react-bootstrap';
-import { useTasksContext } from '../hooks/useTasksContext.jsx';
+import { useTasksContext } from '../hooks/useTasksContext.js';
 
 function StatusBadge({ id, status }) {
   const [show, setShow] = useState(false);

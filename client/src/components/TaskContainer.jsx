@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import TaskCard from './TaskCard.jsx';
 import ControlPanel from './ControlPanel.jsx';
-import EmptyMessage from './EmptyMessagejsx';
+import EmptyMessage from './EmptyMessage.jsx';
 import { useFilterTasks } from '../hooks/useFilterTasks.js';
 
 function TaskContainer() {
@@ -17,16 +17,16 @@ function TaskContainer() {
       </Row>
       <Row>
         {filteredTasks?.length > 0 ? (
-          filteredTasks.map((item) => (
+          filteredTasks.map((item, index) => (
             <Col
-              key={item.id}
+              key={item._id || index}
               xs={12}
               sm={6}
               md={4}
               lg={3}
               className='mb-4 d-flex'
             >
-              <TaskCard task={item} />
+              <TaskCard task={item} index={index} />
             </Col>
           ))
         ) : (

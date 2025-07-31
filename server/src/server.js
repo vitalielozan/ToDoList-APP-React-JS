@@ -25,7 +25,7 @@ app.use(rateLimiter);
 
 app.use('/api/tasks', tasksRoutes);
 
-// frontend serving
+// Frontend serving
 if (process.env.NODE_ENV === 'production') {
   const distPath = path.join(__dirname, '../../client/dist');
   const indexFile = path.join(__dirname, '../../client', 'dist', 'index.html');

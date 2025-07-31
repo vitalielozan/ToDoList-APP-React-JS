@@ -84,7 +84,7 @@ export async function deleteTask(req, res) {
   const { id } = req.params;
   try {
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: 'Tasknot found' });
+      return res.status(404).json({ error: 'Task not found' });
     }
     const deletedTask = await Task.findByIdAndDelete({ _id: id });
     if (!deletedTask) {
