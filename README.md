@@ -14,7 +14,8 @@ A simple To-Do List application built with ReactJS. It allows users to add, comp
 - HTML5 & CSS3
 - JavaScript (ES6+)
 - React JS
-- Json-Server
+- Express JS
+- MongoDB
 
 ## Features
 
