@@ -6,12 +6,13 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
   const { deleteTaskById, editTaskById } = useTasksContext();
   const parsedDate =
     dueDate instanceof Date
-      ? dueDate.toLocaleDateString()
-      : new Date(dueDate).toLocaleDateString();
+      ? dueDate.toISOString().split('T')[0]
+      : new Date(dueDate).toISOString().split('T')[0];
 
   const [showModal, setShowModal] = useState(false);
   const [editedDetails, setEditedDetails] = useState(taskDetails);
   const [editedName, setEditedName] = useState(taskName);
+  const [editedDate, setEditedDate] = useState(dueDate);
 
   const handleDelete = () => {
     if (window.confirm('Are you sure to delete this task?')) {
@@ -22,6 +23,7 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
   const handleEditTask = () => {
     setEditedDetails(taskDetails);
     setEditedName(taskName);
+    setEditedDate(parsedDate);
     setShowModal(true);
   };
 
@@ -29,7 +31,7 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
     await editTaskById(id, {
       taskName: editedName,
       taskDetails: editedDetails,
-      dueDate,
+      dueDate: editedDate,
       status,
     });
     setShowModal(false);
@@ -65,6 +67,14 @@ function DateContainer({ id, taskName, dueDate, status, taskDetails }) {
                 type='text'
                 value={editedName}
                 onChange={(e) => setEditedName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId='formDueDate'>
+              <Form.Label>Due Date</Form.Label>
+              <FormControl
+                type='date'
+                value={editedDate}
+                onChange={(e) => setEditedDate(e.target.value)}
               />
             </Form.Group>
             <Form.Group controlId='formTaskDetails'>
