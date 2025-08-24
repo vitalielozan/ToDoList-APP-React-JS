@@ -8,7 +8,7 @@ const rateLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   store: new MongoStore({
-    uri: process.env.MONGO_URI,
+    uri: process.env.MONGO_URL,
     collectionName: 'rateLimits',
     expireTimeMs: 15 * 60 * 1000, // 15 minutes
     errorHandler: console.error,
