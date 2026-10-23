@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 export const connectDB = async () => {
+  if (!process.env.MONGO_URL) {
+    console.error('MONGO_URL is missing. Set it in the Render environment variables.');
+    process.exit(1);
+  }
+
   try {
     await mongoose.connect(process.env.MONGO_URL, {
       dbName: 'to-do_db',
