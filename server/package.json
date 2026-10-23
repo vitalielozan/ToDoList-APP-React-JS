@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "node --watch src/server.js",
     "start": "node src/server.js"
   },
   "type": "module",
@@ -11,19 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "express-rate-limit": "^7.5.0",
-    "mongodb": "^6.18.0",
-    "mongoose": "^8.16.5",
-    "morgan": "^1.10.0",
-    "rate-limit-mongo": "^2.3.2",
+    "@iroomit/rate-limit-mongodb": "^1.0.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "mongodb": "^7.7.0",
+    "mongoose": "^9.11.3",
+    "morgan": "^1.12.1",
     "router": "^2.2.0",
     "todo-list-react": "file:.."
   },
-  "description": "",
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+  "description": ""
 }

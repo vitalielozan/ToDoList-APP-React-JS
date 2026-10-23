@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { Form, Button } from 'react-bootstrap';
 import { validateForm } from '../utils/functions.js';
@@ -12,16 +12,7 @@ function CreateTaskForm({ addNewTask }) {
     taskDetails: '',
   });
 
-  const [formValidation, setFormValidation] = useState({
-    taskNameError: '',
-    dueDateError: '',
-    taskDetailsError: '',
-    isValid: true,
-  });
-
-  useEffect(() => {
-    setFormValidation(validateForm(formData));
-  }, [formData]);
+  const formValidation = validateForm(formData);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

@@ -1,17 +1,15 @@
 import rateLimit from 'express-rate-limit';
-import MongoStore from 'rate-limit-mongo';
+import { MongoDBStore } from '@iroomit/rate-limit-mongodb';
 
 const rateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
+  limit: 100,
   message: 'Too many requests, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
-  store: new MongoStore({
+  store: new MongoDBStore({
     uri: process.env.MONGO_URL,
     collectionName: 'rateLimits',
-    expireTimeMs: 15 * 60 * 1000, // 15 minutes
-    errorHandler: console.error,
   }),
 });
 
