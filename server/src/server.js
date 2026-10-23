@@ -15,15 +15,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Middleware
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 if (process.env.NODE_ENV !== 'production') {
   app.use(cors({ origin: 'http://localhost:5173' }));
 }
 
 app.use(express.json());
 
-app.use(rateLimiter);
-
-app.use('/api/tasks', tasksRoutes);
+app.use('/api/tasks', rateLimiter, tasksRoutes);
 
 // Frontend serving
 if (process.env.NODE_ENV === 'production') {
